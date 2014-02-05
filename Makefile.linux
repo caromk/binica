@@ -1,16 +1,16 @@
 PLAT = _linux
 
 CC        = gcc
-CFLAGS    = -O3 -ansi
-#BLASLIB   = ./CLAPACK/lsblaspii1.2f_03.00.a
-BLASLIB   = ./CLAPACK/blas$(PLAT).a
-LAPACKLIB = ./CLAPACK/lapack$(PLAT).a
-F2CLIB    = ./CLAPACK/F2CLIBS/libF77$(PLAT).a ./CLAPACK/F2CLIBS/libI77$(PLAT).a
-LIBS      = $(LAPACKLIB) $(BLASLIB) $(F2CLIB) -lm
+CFLAGS    = -O3 -ansi -Wl,--allow-multiple-definition 
+LAPACKLIB = /usr/lib/liblapack.a 
+F2CLIB    = /usr/lib/libf2c.a
+BLASLIB   = /usr/lib/libblas.a 
+GFORTRANLIB = /usr/lib/x86_64-linux-gnu/libgfortran.so.3
+LIBS      = $(LAPACKLIB) $(BLASLIB) $(F2CLIB) $(GFORTRANLIB) -lm 
 OBJS      = ica.o interfc.o r250.o randlcg.o dsum.o
 
 ica_linux: Makefile.linux ica.h memap.h $(OBJS)
-	$(CC) -o ica_linux $(OBJS) $(LIBS)
+	$(CC) -o ica_linux $(OBJS) $(LIBS) -Wl,--allow-multiple-definition
 
 ica.o: Makefile.linux ica.h memap.h ica.c
 	$(CC) -c ica.c $(CFLAGS)
