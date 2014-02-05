@@ -1,3 +1,5 @@
+From the simonster version / EEGLAB: (caromk notes at end)
+
 PLEASE READ THE LICENSE FILE FIRST - GNU GPL
 
 SOFTWARE REQUIREMENTS:
@@ -29,3 +31,14 @@ Example:
 A Makefile must be constructed to compile the ICA software for a platform for which no Makefile exists. You may modify any of the existing Makefiles to fit your system.
 
 Defining MMAP causes the ICA software to use memory mapping rather than memory allocation for data storage. Memory mapping allows the ICA software to return freed memory to the kernel, thus significantly decreases memory usage. However, memory mapping may not work on all systems.
+
+Caromk practical notes:
+
+1 - Most of the Makefiles require the CLAPACK libraries, which I found a huge
+pain to get working and gave up. The Makefile.linux demonstrates how to do it
+with LAPACK/BLAS/F2C, but is klugey, as it uses static links and an ignore flag,
+     because I don't know how to make a proper Makefile.
+
+2 - To use with MATLAB, you need to modify two line in binica.m. (a) Define ICABINARY
+in the appropriate place for your system. (b) Define the name of the parameter file for your system in the SC variable. It should be in the same directory as binica.m. Also, (c) Add the directory containing this code to your Matlab path.
+
