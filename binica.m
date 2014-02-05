@@ -88,7 +88,7 @@ SC  =  ['binica.sc'];           % Master .sc script file for binica.m
                                 % MATLAB will use first such file found
                                 % in its path of script directories.
                                 % Copy to pwd to alter ICA defaults
-ICABINARY = 'ica_linux';
+ICABINARY = '~/binica/ica_linux';
 
 if nargin < 1 | nargin > 25
     more on
