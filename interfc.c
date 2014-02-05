@@ -836,8 +836,8 @@ void doit(key *keys) {
 	}
 	else
 		varsort(dataA,weights,sphere,NULL,bias,signs,(integer)ncomps,(integer)datalength,(integer)chans);
-
-	fb_matwrite("bias_after_adjust",ncomps,bias);
+	if (biasflag)
+		fb_matwrite("bias_after_adjust",ncomps,bias);
 
 
 /**************************** Write results to disk ***************************/
