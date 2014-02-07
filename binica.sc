@@ -12,9 +12,9 @@
 #
 # Required variables:
 # 
-    DataFile     XXX       # Input data to decompose (floats multiplexed
+    DataFile     /home/caromk/simdata/base2WW_321_21_1p25.bin       # Input data to decompose (floats multiplexed
                            #   by channel (i.e., chan1, chan2, ...))
-    chans        10        # Number of data channels (= data columns) 
+    chans        6741        # Number of data channels (= data columns) 
     frames       150000       # Number of data points per epoch (= data rows)
 #
 #   epochs       436       # Number of epochs
@@ -30,7 +30,7 @@
 # Processing options:
 # 
     sphering     off        # Flag sphering of data (on/off)   {default: on}
-    bias         off        # Perform bias adjustment (on/off) {default: on}
+    bias         on        # Perform bias adjustment (on/off) {default: on}
     extended     0         # Perform "extended-ICA" using tnah() with kurtosis
                            #  estimation every N training blocks. If N < 0,
                            #  fix number of sub-Gaussian components to -N 

@@ -4,9 +4,9 @@ CC        = gcc
 CFLAGS    = -O3 -ansi -Wl,--allow-multiple-definition 
 LAPACKLIB = /usr/lib/liblapack.a 
 F2CLIB    = /usr/lib/libf2c.a
-BLASLIB   = /usr/lib/libblas.a 
+BLASLIB   = /usr/lib/libopenblas.a 
 GFORTRANLIB = /usr/lib/x86_64-linux-gnu/libgfortran.so.3
-LIBS      = $(LAPACKLIB) $(BLASLIB) $(F2CLIB) $(GFORTRANLIB) -lm 
+LIBS      = $(LAPACKLIB) $(BLASLIB) $(F2CLIB) $(GFORTRANLIB) -lm -fopenmp
 OBJS      = ica.o interfc.o r250.o randlcg.o dsum.o
 
 ica_linux: Makefile.linux ica.h memap.h $(OBJS)
