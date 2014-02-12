@@ -12,9 +12,9 @@
 #
 # Required variables:
 # 
-    DataFile     /home/caromk/simdata/base2WW_321_21_1p25.bin       # Input data to decompose (floats multiplexed
+    DataFile     /dev/shm/data/base2CC_rand102.bin       # Input data to decompose (floats multiplexed
                            #   by channel (i.e., chan1, chan2, ...))
-    chans        6741        # Number of data channels (= data columns) 
+    chans        102        # Number of data channels (= data columns) 
     frames       150000       # Number of data points per epoch (= data rows)
 #
 #   epochs       436       # Number of epochs

@@ -316,7 +316,10 @@ int compar(const void *x, const void *y) {
 void varsort(doublereal *data, doublereal *weights, doublereal *sphere, doublereal *eigv, doublereal *bias, integer *signs, integer m, integer n, integer k) {
 	char name[] = "DGETRI\0", opts[] = "\0";
 	doublereal alpha = 1.0, beta = 0.0;
-	integer i, j, l, jm, ik, info = 0, ispec = 1, na = -1;
+	integer i, j, l, jm, ik;
+	integer info = 0;
+	integer ispec = 1;
+	integer na = -1;
 	char transn='N', transt='T', uplo='U', side = 'R';
 	
 	integer nb = ilaenv_(&ispec,name,opts,&m,&na,&na,&na);
